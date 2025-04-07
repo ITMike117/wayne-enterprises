@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rdContent = document.getElementById('rd-content');
 
     rdSubmit.addEventListener('click', () => {
-        if (rdPassword.value.toLowerCase() === 'darkknight') {
+        if (rdPassword.value.toLowerCase() === 'truth') {
             rdContent.style.display = 'block';
         } else {
             alert('Access denied. Incorrect password.');

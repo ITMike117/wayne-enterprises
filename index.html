@@ -7,21 +7,82 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="content">
-        <h1>Wayne Enterprises</h1>
-        <p>Innovating the future, securing the present.</p>
-        <nav>
-            <a href="#">About</a>
-            <a href="#">Products</a>
-            <a href="#">Careers</a>
-        </nav>
+    <header>
+        <button class="sidebar-toggle" aria-label="Toggle Sidebar">☰</button>
+        <div class="logo">
+            <img src="https://via.placeholder.com/50?text=WE" alt="Wayne Enterprises Logo">
+            <h1>Wayne Enterprises</h1>
+        </div>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li class="dropdown">
+                <a href="#subsidiaries">Subsidiaries</a>
+                <div class="dropdown-content">
+                    <a href="#waynetech">WayneTech</a>
+                    <a href="#aerospace">Wayne Aerospace</a>
+                    <a href="#foundation">Wayne Foundation</a>
+                </div>
+            </li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#rd-access" style="color: #00ff00;">R&D Access</a></li>
+        </ul>
     </div>
-    <div class="riddler-hack">
-        <h2>The Riddler Strikes Again!</h2>
-        <p>A fortress of steel hides what’s true,<br>
-           Contracts of war are my next clue.<br>
-           Dig deeper, Gotham’s fool!</p>
-    </div>
+    <main>
+        <section class="hero" id="home">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" alt="Wayne Tower">
+            <div class="hero-text">
+                <h2>Innovating Gotham’s Future</h2>
+                <p>Wayne Enterprises: Leading in technology, industry, and philanthropy.</p>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Founded in the 17th century, Wayne Enterprises is a global leader headquartered in Gotham City. Under Bruce Wayne’s leadership, we drive innovation through our subsidiaries.</p>
+        </section>
+        <section id="subsidiaries">
+            <h2>Our Subsidiaries</h2>
+            <div class="subsidiaries-grid">
+                <div id="waynetech">
+                    <h3>WayneTech</h3>
+                    <p>Cutting-edge technology solutions for a connected world.</p>
+                </div>
+                <div id="aerospace">
+                    <h3>Wayne Aerospace</h3>
+                    <p>Advanced aircraft and space exploration systems.</p>
+                </div>
+                <div id="foundation">
+                    <h3>Wayne Foundation</h3>
+                    <p>Philanthropy improving lives in Gotham and beyond.</p>
+                </div>
+            </div>
+        </section>
+        <section id="news">
+            <h2>Latest News</h2>
+            <p>April 6, 2025: WayneTech unveils new sustainable energy project.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: info@wayneenterprises.com | Phone: (555) 987-6543</p>
+        </section>
+        <section id="rd-access" class="rd-access">
+            <h2>R&D Access</h2>
+            <p>Authorized personnel only. Enter password:</p>
+            <input type="text" id="rd-password" placeholder="Password">
+            <button id="rd-submit">Submit</button>
+            <div id="rd-content" style="display: none;">
+                <p>Access granted. Project: Knightfall</p>
+                <!-- FLAG{secrets_unveiled} -->
+                <!-- Next step: Investigate Gotham's shadows -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Wayne Enterprises</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

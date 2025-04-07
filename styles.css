@@ -178,6 +178,21 @@ footer {
     width: 100%;
 }
 
+.glitch {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    animation: glitch 0.5s infinite;
+}
+
+#rd-content p, #rd-content a {
+    color: #fff;
+    margin: 10px 0;
+}
+
+#rd-content a:hover {
+    color: #b8860b;
+}
+
 @media (max-width: 768px) {
     .sidebar {
         width: 0;
@@ -190,4 +205,18 @@ footer {
     .hero-text p {
         font-size: 16px;
     }
+    .glitch {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    animation: glitch 0.5s infinite;
+}
+
+#rd-content p, #rd-content a {
+    color: #fff;
+    margin: 10px 0;
+}
+
+#rd-content a:hover {
+    color: #b8860b;
+}
 }

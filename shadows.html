@@ -1,48 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wayne Enterprises - Secure Terminal</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wayne Enterprises - Secure Terminal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Additional styling for that 'tech schematic' feel */
+    .schematic {
+      background-color: #101416;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .schematic h3 {
+      font-size: 1.5rem;
+      color: #ffcb05; /* Wayne color accent or a gold tone */
+      margin-bottom: 10px;
+    }
+
+    .schematic img {
+      max-width: 100%;
+      border: 2px solid #ffcb05;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .schematic p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .riddler-note {
+      color: #00ff00; /* Riddler green */
+      font-family: 'Courier New', Courier, monospace;
+      margin-top: 15px;
+      border-left: 3px solid #00ff00;
+      padding-left: 8px;
+    }
+  </style>
 </head>
-<body>
-    <div class="content">
-        <h1>Hidden Access Point</h1>
-        <p id="prelogin">Enter passphrase to reveal hidden R&D files:</p>
-        <input type="password" id="secretPW" placeholder="********" />
-        <button onclick="checkPass()">Submit</button>
-        <p id="feedback"></p>
-
-        <div id="secretContent" style="display:none;">
-            <h2>Military Contracts</h2>
-            <p>Top-secret projects for national defense. Director: Lucius Fox</p>
-            <ul>
-                <li>Project Knightfall: Autonomous stealth drone</li>
-                <li>ArkTech Armor: Nano-weave adaptive suit</li>
-                <li>Oracle Grid: Predictive AI platform</li>
-            </ul>
-
-            <!-- Riddler comment: Not so squeaky clean, are we, Wayne? -->
-            <!-- Riddler comment: Wanna know more about Fox? 
-                 Check out @FoxTechMaster on Instagram... 
-                 if you dare. -->
-        </div>
+<body style="background-color: #0a0f12; color: #fff;">
+  <header>
+    <div class="logo" style="padding: 10px;">
+      <img
+        src="https://via.placeholder.com/50?text=WE"
+        alt="Wayne Enterprises Logo"
+        style="vertical-align: middle;"
+      />
+      <h1 style="display: inline-block; margin-left: 10px; color: #b8860b;">Wayne R&D Terminal</h1>
     </div>
+  </header>
 
-    <script>
-      function checkPass() {
-        const inputVal = document.getElementById('secretPW').value.toLowerCase().trim();
-        const feedback = document.getElementById('feedback');
-        const secretContent = document.getElementById('secretContent');
+  <main style="padding: 20px;">
+    <!-- Login Section -->
+    <section id="loginSection">
+      <h2>Secure Authentication</h2>
+      <p>Enter passphrase to unlock project schematics:</p>
+      <input type="password" id="secretPW" placeholder="********" />
+      <button onclick="checkPass()">Submit</button>
+      <p id="feedback" style="margin-top: 10px; color: #f00;"></p>
+    </section>
 
-        if (inputVal === 'fire') {
-          feedback.textContent = 'Access Granted.';
-          secretContent.style.display = 'block';
-        } else {
-          feedback.textContent = 'Incorrect passphrase.';
-        }
+    <!-- Hidden Content -->
+    <section id="postLoginContent" style="display:none;">
+      <h2>R&D Project Archives</h2>
+      <p>Confidential files: Wayne Enterprises Defense Division</p>
+
+      <!-- Example Schematic #1: Batmobile (Tumbler) -->
+      <div class="schematic">
+        <h3>Batmobile - “Tumbler” Prototype</h3>
+        <img
+          src="https://via.placeholder.com/600x400?text=BATMOBILE+SCHEMATIC"
+          alt="Batmobile Schematic Placeholder"
+        />
+        <p>
+          Experimental bridging vehicle adapted for urban pacification and high-speed pursuit. 
+          Features stealth mode, ballistic armor plating, and integrated weaponry.
+        </p>
+      </div>
+
+      <!-- Example Schematic #2: Batsuit -->
+      <div class="schematic">
+        <h3>Batsuit: Mark III - “Nomex Survival Suit”</h3>
+        <img
+          src="https://via.placeholder.com/600x400?text=BATSUIT+SCHEMATIC"
+          alt="Batsuit Schematic Placeholder"
+        />
+        <p>
+          Armor-based survival suit for advanced infiltration. 
+          Nano-weave Kevlar for bullet resistance, memory cloth cape for gliding, and various utility attachments.
+        </p>
+      </div>
+
+      <!-- The Riddler's green messages -->
+      <div class="riddler-note">
+        <p><strong>Riddler:</strong> So the bat rides in style, hmm? And Wayne just finances it all?</p>
+        <p><strong>Riddler:</strong> You want to know who’s behind these gadgets? Director Lucius Fox pulls the strings.</p>
+      </div>
+      <div class="riddler-note">
+        <p><strong>Riddler:</strong> Wanna dig deeper? Ask Fox himself. I hear his social handle is <em>@FoxUndercover</em>...</p>
+        <p><strong>Riddler:</strong> Tick-tock, the truth awaits. The city will see the Bat’s downfall soon enough...</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function checkPass() {
+      const inputVal = document.getElementById('secretPW').value.toLowerCase().trim();
+      const feedback = document.getElementById('feedback');
+      const contentSection = document.getElementById('postLoginContent');
+      const loginSection = document.getElementById('loginSection');
+
+      if (inputVal === 'fire') {
+        feedback.style.color = '#0f0'; // green text for success
+        feedback.textContent = 'Access Granted.';
+        contentSection.style.display = 'block';
+        loginSection.style.display = 'none';
+      } else {
+        feedback.style.color = '#f00'; // red for error
+        feedback.textContent = 'Incorrect passphrase. Access Denied.';
       }
-    </script>
+    }
+  </script>
 </body>
 </html>

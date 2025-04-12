@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Military Contracts - Wayne Enterprises</title>
+    <title>Wayne Enterprises - Secure Terminal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="content">
-        <h1>Military Contracts</h1>
-        <p>Top-secret projects for national defense.</p>
-        <p>Director: Lucius Fox</p>
-    </div>
-    <div class="riddler-hack">
-        <h2>Caught You!</h2>
-        <p>The Fox guards the mask, but I see through,<br>
-           His social scroll holds the final clue!</p>
-        <div style="display: none;">
-            <!-- Check Lucius Fox’s Instagram for the truth -->
+        <h1>Hidden Access Point</h1>
+        <p id="prelogin">Enter passphrase to reveal hidden R&D files:</p>
+        <input type="password" id="secretPW" placeholder="********" />
+        <button onclick="checkPass()">Submit</button>
+        <p id="feedback"></p>
+
+        <div id="secretContent" style="display:none;">
+            <h2>Military Contracts</h2>
+            <p>Top-secret projects for national defense. Director: Lucius Fox</p>
+            <ul>
+                <li>Project Knightfall: Autonomous stealth drone</li>
+                <li>ArkTech Armor: Nano-weave adaptive suit</li>
+                <li>Oracle Grid: Predictive AI platform</li>
+            </ul>
+
+            <!-- Riddler comment: Not so squeaky clean, are we, Wayne? -->
+            <!-- Riddler comment: Wanna know more about Fox? 
+                 Check out @FoxTechMaster on Instagram... 
+                 if you dare. -->
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+      function checkPass() {
+        const inputVal = document.getElementById('secretPW').value.toLowerCase().trim();
+        const feedback = document.getElementById('feedback');
+        const secretContent = document.getElementById('secretContent');
+
+        if (inputVal === 'fire') {
+          feedback.textContent = 'Access Granted.';
+          secretContent.style.display = 'block';
+        } else {
+          feedback.textContent = 'Incorrect passphrase.';
+        }
+      }
+    </script>
 </body>
 </html>
